@@ -23,3 +23,42 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+
+
+function renderReviews(review) {
+
+  //create review section
+  const reviewSection = document.createElement('div');
+  reviewSection.classList.add('review_container');
+
+  //create img element for user
+  const image = document.createElement('img');
+  image.src = review.image;
+  reviewSection.appendChild(image);
+
+  //create div element
+  const textDiv = document.createElement('div');
+
+  //create username paragraph element
+  const usernameParagraph = document.createElement('p');
+  usernameParagraph.textContent = review.username;
+  textDiv.appendChild(usernameParagraph);
+
+  //create star paragraph element
+  const starParagraph = document.createElement('p');
+  starParagraph.textContent = `${review.star} stars`;
+  textDiv.appendChild(starParagraph);
+
+  //create review paragraph element
+  const reviewParagraph = document.createElement('p');
+  reviewParagraph.textContent = review.review;
+  textDiv.appendChild(reviewParagraph);
+
+  //append the text div -> then get review container
+  reviewSection.appendChild(textDiv);
+
+  //Append review section
+  document.querySelector('.reviews').appendChild(reviewSection);
+}
+  //iterate through the reviews, then we render
+  reviews.forEach(renderReviews);
