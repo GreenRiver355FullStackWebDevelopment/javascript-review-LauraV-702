@@ -24,6 +24,36 @@ const reviews = [
 
 //Your Code Below Here////
 
+//get form element
+const form = document.querySelector('form');
+
+//add event listener
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); 
+
+  //get form values
+  const username = document.querySelector('#username').value;
+  const image = document.querySelector('#image').value;
+  const star = parseInt(document.querySelector('#star').value); 
+  const reviewText = document.querySelector('#review').value;
+
+  //create a new review object
+  const newReview = {
+    username: username,
+    image: image,
+    star: star,
+    review: reviewText
+  };
+
+  //add the new review to the reviews array
+  reviews.push(newReview);
+
+  //render the new review on the screen
+  renderReviews(newReview);
+
+  //clears form inputs
+  form.reset();
+});
 
 function renderReviews(review) {
 
